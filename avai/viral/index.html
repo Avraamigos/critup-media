@@ -1,99 +1,351 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AVAI Studio — AI animation that goes viral</title>
-<meta name="description" content="AVAI Studio is an AI animation agency. 150M+ views across our featured reels.">
+<meta name="theme-color" content="#F5F7FA">
+<title>Avraam Valikhan — AI animation director &amp; creator</title>
+<meta name="description" content="Portfolio of Avraam Valikhan, AI animation director and creator. 157.9M+ views across 12 reels.">
 <meta name="robots" content="noindex">
+<link rel="icon" href="https://avaistudios.com/icon.png" type="image/png">
 <style>
-@font-face{font-family:"Nunito";src:url(fonts/Nunito.ttf) format("truetype");font-weight:200 1000;font-display:swap}
-@font-face{font-family:"Manrope";src:url(fonts/Manrope.ttf) format("truetype");font-weight:200 800;font-display:swap}
-:root{--navy:#041C4C;--ink:#020F2B;--blue:#1B64C2;--tint:#E6EFFB;--soft:#DCE8FA;--sky:#9CC3F5;--line:rgba(156,195,245,.18)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:#fff;font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:500;line-height:1.55;-webkit-font-smoothing:antialiased}
+
+/* ============================================================
+   AVAI Studio · Apple / iOS glass on a luminous light-blue ground
+   Contrast (measured):
+     ink #0A1628 on #F5F7FA        16.9:1
+     muted #5A6A80 on #F5F7FA       5.1:1  (brief's #6B7A8F = 4.07, body-text FAIL)
+     white on button #0071E3        4.7:1  (white on #0A84FF = 3.65, FAIL) - apple.com's button blue
+     deep #1A4FB5 as link text      6.9:1
+     #0A84FF / #3FC8FF are accents, glows and focus only, never body text
+   ============================================================ */
+:root {
+  --bg:        #F5F7FA;
+  --ink:       #0A1628;
+  --muted:     #5A6A80;
+  --muted-lg:  #6B7A8F;      /* >= 19px only */
+  --primary:   #0A84FF;
+  --accent:    #3FC8FF;
+  --deep:      #1A4FB5;
+  --btn:       #0071E3;
+  --btn-hover: #0062C4;
+  --line:      rgba(10, 22, 40, 0.08);
+
+  --glass-bg:        rgba(255, 255, 255, 0.66);   /* text-bearing panels */
+  --glass-bg-frame:  rgba(255, 255, 255, 0.55);   /* media frames, decorative */
+  --glass-bg-bar:    rgba(255, 255, 255, 0.72);   /* nav */
+  --glass-border:    rgba(255, 255, 255, 0.70);
+  --glass-hi:        rgba(255, 255, 255, 0.95);   /* 1px top highlight */
+  --glass-blur:      28px;
+  --glass-sat:       180%;
+
+  --shadow-sm: 0 1px 2px rgba(10,22,40,.04), 0 6px 18px rgba(10,22,40,.06);
+  --shadow-md: 0 2px 4px rgba(10,22,40,.05), 0 16px 40px rgba(10,22,40,.09);
+  --shadow-lg: 0 4px 8px rgba(10,22,40,.05), 0 30px 70px rgba(26,79,181,.14);
+
+  --r-lg: 24px; --r-md: 20px; --r-sm: 16px; --r-xs: 12px;
+
+  /* z-index scale */
+  --z-nav: 50; --z-skip: 100;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(10,132,255,.22); }
+
+/* ---------- Luminous ground: soft blue washes, fixed so glass has something to refract ---------- */
+.ground {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 12% 8%,  rgba(63,200,255,.28), transparent 70%),
+    radial-gradient(50% 40% at 88% 18%, rgba(10,132,255,.20), transparent 70%),
+    radial-gradient(70% 50% at 50% 100%, rgba(26,79,181,.14), transparent 70%),
+    var(--bg);
+}
+
+/* ---------- Type ---------- */
+.h-display { font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; text-wrap: balance; }
+.h-section { font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; text-wrap: balance; }
+.h-card    { font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.copy      { color: var(--muted); text-wrap: pretty; }
+.copy-lg   { color: var(--muted-lg); text-wrap: pretty; }
+
+/* ---------- Touch: no double-tap zoom delay, intentional tap highlight ---------- */
+a, button, summary, input, textarea, [role="button"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* ---------- Focus: always visible, brand blue ---------- */
+:where(a, button, input, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ---------- Glass ---------- */
+.glass, .glass-frame, .glass-bar {
+  position: relative;
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-sm);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+}
+.glass       { background: var(--glass-bg);       border-radius: var(--r-md); }
+.glass-frame { background: var(--glass-bg-frame); border-radius: var(--r-lg); box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-lg); }
+.glass-bar   { background: var(--glass-bg-bar);   border-radius: var(--r-md); }
+
+.glass-hover { transition: box-shadow .3s cubic-bezier(.16,1,.3,1), background-color .3s ease, border-color .3s ease; }
+.glass-hover:hover { background: rgba(255,255,255,.80); box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-md); }
+
+/* Mobile: cheaper blur, fewer pixels to composite */
+@media (max-width: 767px) {
+  :root { --glass-blur: 16px; --glass-sat: 150%; }
+}
+/* No backdrop-filter support -> solid, still crisp */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-bar { background: rgba(255,255,255,.94); }
+  .glass-frame       { background: rgba(255,255,255,.90); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-frame, .glass-bar { background: rgba(255,255,255,.96); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+/* ---------- Buttons: pill, 48px min (touch) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: 0 1.5rem; border-radius: 999px;
+  font-size: 17px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer;
+  transition: background-color .2s ease, box-shadow .25s cubic-bezier(.16,1,.3,1), transform .15s ease, border-color .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-solid { background: var(--btn); color: #fff; box-shadow: 0 8px 24px rgba(10,132,255,.28); }
+.btn-solid:hover { background: var(--btn-hover); box-shadow: 0 10px 30px rgba(10,132,255,.36); }
+.btn-glass {
+  color: var(--ink); background: rgba(255,255,255,.60);
+  border: 1px solid var(--glass-border); box-shadow: inset 0 1px 0 var(--glass-hi), var(--shadow-sm);
+  -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
+}
+.btn-glass:hover { background: rgba(255,255,255,.82); }
+
+/* ---------- Media ---------- */
+.ratio-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--r-sm); background: #0A1628; }
+/* Only the media fills the box. Overlay controls keep their own size. */
+.ratio-video > iframe,
+.ratio-video > img,
+.ratio-video > button.media-hit { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* Films are 2.41:1 inside a 16:9 upload, so posters carry ~13% letterbox.
+   Scale the still to crop the bars; the player itself stays untouched. */
+.poster-crop { transform: scale(1.36); transform-origin: center; }
+
+/* ---------- Marquee (the one on the page) ---------- */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- Segmented control (EN/RU) ---------- */
+.seg { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(10,22,40,.06); }
+.seg button { min-width: 48px; min-height: 44px; padding: 0 .8rem; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; transition: background-color .2s, color .2s, box-shadow .2s; }
+.seg button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(10,22,40,.12); }
+
+@keyframes fadein { to { opacity: 1; } }
+
+/* ---------- Hero entrance: compositor-only, no JS required ---------- */
+.rise { animation: rise .7s cubic-bezier(.16,1,.3,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* Progressive enhancement: if JS never runs, scroll-reveal content must still be visible */
+.no-js [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .rise { animation: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Audience is navigation; language is a compact utility control. */
+.audience-nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .75rem; font-size: 15px; font-weight: 500; color: var(--muted); white-space: nowrap; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.audience-nav-link:hover { color: var(--ink); }
+.audience-nav-link[aria-current="page"] { color: var(--deep); border-bottom-color: var(--deep); font-weight: 600; }
+.language-select { min-height: 44px; width: 58px; padding: 0 6px; border: 0; background-color: transparent; color: var(--ink); font-size: 13px; font-weight: 600; cursor: pointer; }
+.language-select:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+@media(max-width: 480px) { .audience-nav-link { padding: 0 .4rem; font-size: 12px; } .language-select { width: 46px; padding: 0 2px; font-size: 12px; } }
+@media (prefers-reduced-motion: reduce) {
+ .marquee { mask-image: none; -webkit-mask-image: none; }
+ .marquee-track > ul[aria-hidden="true"] { display: none; }
+ .marquee-track > ul { flex-wrap: wrap; justify-content: center; width: 100%; gap: 2rem; padding-right: 0; }
+}
+
+/* ---------- Page layout (same rhythm as /prompts/dress: 900px shell, glass cards) ---------- */
+.shell{max-width:1040px;margin:0 auto;padding:16px 16px 40px}
+@media(min-width:640px){.shell{padding:24px 24px 40px}}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,.num{font-family:Nunito,Manrope,sans-serif;font-weight:900;letter-spacing:-.01em}
-/* hero */
-.hero{background:radial-gradient(120% 90% at 50% 0%,#0d3d8a 0%,var(--navy) 45%,var(--ink) 100%);padding:28px 0 56px;border-bottom:1px solid var(--line)}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
-.brand{font-family:Nunito;font-weight:900;font-size:22px;letter-spacing:-.01em}
-.brand b{color:var(--sky)}
-.tag{font-size:12px;font-weight:700;background:var(--blue);padding:6px 14px;border-radius:99px}
-h1{font-size:clamp(34px,8vw,68px);line-height:1.04;max-width:14ch}
-h1 span{color:var(--sky)}
-.lead{margin-top:18px;max-width:46ch;color:var(--soft);font-size:clamp(16px,2.4vw,19px)}
-.stats{display:grid;grid-template-columns:1fr;gap:12px;margin-top:40px}
-.stat{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:22px;padding:22px 24px}
-.stat .num{font-size:clamp(46px,12vw,76px);line-height:1;color:#fff}
-.stat .lbl{margin-top:8px;color:var(--soft);font-size:14px;font-weight:600}
-.stat.big{background:var(--blue);border-color:transparent}
-.stat.big .lbl{color:#fff}
-.cta{display:inline-flex;align-items:center;gap:10px;margin-top:34px;background:#fff;color:var(--navy);font-family:Nunito;font-weight:900;font-size:18px;padding:17px 30px;border-radius:99px;transition:transform .15s,box-shadow .15s}
-.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(27,100,194,.45)}
-/* sections */
-section{padding:56px 0 8px}
-.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:6px}
-h2{font-size:clamp(26px,5vw,38px)}
-.handle{color:var(--sky);font-weight:700;font-size:15px}
-.sub{color:var(--soft);opacity:.85;margin-bottom:24px;max-width:60ch;font-size:15px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-.card{display:flex;flex-direction:column;background:var(--navy);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .18s,border-color .18s}
-.card:hover{transform:translateY(-4px);border-color:var(--sky)}
-.thumb{position:relative;aspect-ratio:4/5;background:#0a2a63;overflow:hidden}
-.thumb.wide{aspect-ratio:16/10}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.rank{position:absolute;top:12px;left:12px;background:rgba(2,15,43,.78);backdrop-filter:blur(6px);font-family:Nunito;font-weight:900;font-size:14px;padding:5px 12px;border-radius:99px}
-.body{padding:18px 20px 20px}
-.views{font-family:Nunito;font-weight:900;font-size:clamp(34px,8vw,44px);line-height:1}
-.views small{font-family:Manrope;font-weight:700;font-size:13px;color:var(--sky);margin-left:6px;letter-spacing:.04em;text-transform:uppercase}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;color:var(--soft);font-size:14px;font-weight:600}
-.ttl{margin-top:12px;font-size:15px;color:#fff;font-weight:700;line-height:1.35}
-.go{margin-top:14px;font-size:13px;font-weight:800;color:var(--sky)}
-/* about */
-.about{margin-top:64px;background:linear-gradient(160deg,var(--navy),#0b3a82);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,48px)}
-.about p{color:var(--soft);font-size:clamp(16px,2.3vw,19px);max-width:62ch;margin-top:14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.chip{border:1px solid var(--sky);color:#fff;padding:7px 15px;border-radius:99px;font-size:13px;font-weight:700}
-.final{text-align:center;padding:64px 0 40px}
-.final h2{margin-bottom:6px}
-.final .cta{background:var(--blue);color:#fff}
-footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;font-size:11.5px;color:var(--sky);opacity:.8;letter-spacing:.02em}
-@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1.4fr 1fr 1fr}}
+img{display:block;max-width:100%}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.sr-only:focus{position:fixed;left:16px;top:16px;z-index:100;width:auto;height:auto;clip:auto;border-radius:999px;background:var(--ink);color:#fff;padding:12px 20px}
+.bar{display:flex;min-height:72px;align-items:center;justify-content:space-between;gap:16px;padding:0 20px}
+.bar .name{font-weight:600;letter-spacing:-.02em;font-size:19px}
+.bar .tag{font-size:14px;font-weight:500;color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--deep);margin-bottom:16px}
+.hero{padding:48px 0 36px}
+@media(min-width:640px){.hero{padding:80px 0 48px}}
+.hero h1{font-size:42px;max-width:800px}
+@media(min-width:640px){.hero h1{font-size:64px}}
+.hero h1 span{color:var(--deep)}
+.hero .copy{margin-top:24px;max-width:640px;font-size:18px}
+.hero .copy strong,.note strong{font-weight:600;color:var(--ink)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.btn-sm{min-height:44px;padding:0 1.25rem;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr);gap:16px}}
+.stat{padding:20px}
+.stat .num{font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1.05}
+@media(min-width:640px){.stat .num{font-size:44px}}
+.stat .lbl{margin-top:6px;font-size:14px;color:var(--muted)}
+.stat.first{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(215,234,255,.75))}
+.stat.first .num{color:var(--deep)}
+.block{padding-top:56px}
+@media(min-width:640px){.block{padding-top:80px}}
+.block>h2{font-size:30px}
+@media(min-width:640px){.block>h2{font-size:40px}}
+.block>.copy{margin-top:12px;max-width:640px}
+.cards{display:grid;gap:16px;margin-top:24px}
+.cols2{grid-template-columns:1fr}
+@media(min-width:700px){.cols2{grid-template-columns:repeat(2,1fr)}}
+.cols4{grid-template-columns:1fr}
+@media(min-width:640px){.cols4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.cols4{grid-template-columns:repeat(4,1fr)}}
+.panel{padding:22px}
+@media(min-width:640px){.panel{padding:28px}}
+.panel .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.panel h3{font-size:20px}
+.panel p{margin-top:8px;font-size:15px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:30px;font-weight:300;color:rgba(26,79,181,.3);line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;background:rgba(255,255,255,.7);border:1px solid var(--glass-border);box-shadow:inset 0 1px 0 var(--glass-hi),var(--shadow-sm)}
+.note{margin-top:24px;border-left:2px solid var(--deep);padding-left:16px;font-size:16px;max-width:680px}
+.acc{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px}
+.acc h3{font-size:22px}
+.acc p{margin-top:4px;font-size:15px}
+.acc .arrow{font-size:22px;color:var(--deep)}
+.grp{margin-top:36px}
+.grp-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.grp-h h3{font-size:24px}
+.grp-h a{font-size:15px;font-weight:600;color:var(--deep)}
+.grp .copy{font-size:15px;margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+.reel{display:flex;flex-direction:column;overflow:hidden;padding:12px}
+.thumb{position:relative;aspect-ratio:4/5;border-radius:var(--r-sm);overflow:hidden;background:var(--ink)}
+.thumb.wide{aspect-ratio:16/10}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.rank{position:absolute;top:10px;left:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:500;color:var(--ink);background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:4px 11px;border-radius:999px}
+.reel .body{padding:16px 8px 8px}
+.views{font-size:36px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.views small{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--deep);margin-left:8px}
+.likes{margin-top:8px;font-size:15px;color:var(--muted)}
+.ttl{margin-top:12px;font-size:16px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.go{margin-top:12px;font-size:14px;font-weight:600;color:var(--deep)}
+.reel:hover .go{text-decoration:underline}
+.studio{display:flex;flex-direction:column;gap:20px;padding:28px;align-items:flex-start}
+@media(min-width:700px){.studio{flex-direction:row;align-items:center;justify-content:space-between;padding:36px}}
+.studio img{height:56px;width:auto}
+.studio h2{font-size:28px;margin-top:12px}
+.studio .copy{margin-top:8px;max-width:520px}
+footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
-<header class="hero"><div class="wrap">
-  <div class="top"><div class="brand">AVAI<b>.</b>Studio</div><span class="tag">AI animation agency</span></div>
-  <h1>AI animation that <span>people can’t stop watching.</span></h1>
-  <p class="lead">We make animated stories with AI. Here are the reels that took off, with the real numbers.</p>
-  <div class="stats">
-    <div class="stat big"><div class="num" id="s-total">–</div><div class="lbl">total views across the reels below</div></div>
-    <div class="stat"><div class="num" id="s-top">–</div><div class="lbl">views on our top reel</div></div>
-    <div class="stat"><div class="num" id="s-avai">–</div><div class="lbl">views on our top @avai.studio reel</div></div>
-  </div>
-  <a class="cta" href="https://avaistudios.com">See our portfolio <span>→</span></a>
-</div></header>
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<a href="#main" class="sr-only">Skip to content</a>
+<div class="ground" aria-hidden="true"></div>
+<div class="shell">
+<header class="glass-bar bar">
+  <span class="name">Avraam Valikhan</span>
+  <span class="tag">Portfolio</span>
+</header>
+<main id="main">
+  <section class="hero rise" aria-labelledby="t">
+    <p class="eyebrow">AI animation director &amp; creator</p>
+    <h1 id="t" class="h-display">Avraam Valikhan <span>— I make AI animation that goes viral.</span></h1>
+    <p class="copy">I write, direct and generate short animated stories with AI. My reels have reached <strong id="h-total">157.9M+</strong> views across Instagram. Below is the work and the real numbers behind it.</p>
+    <div class="actions">
+      <a class="btn btn-solid btn-sm" href="#reels">See my reels <span aria-hidden="true">↓</span></a>
+      <a class="btn btn-glass btn-sm" id="studio-link" href="https://avaistudios.com" target="_blank" rel="noopener">My studio: AVAI Studio <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-<main class="wrap">
-  <div id="sections"></div>
+  <section class="stats" aria-label="Results">
+    <div class="glass stat first"><div class="num" id="s-total">–</div><div class="lbl">total views across 12 reels</div></div>
+    <div class="glass stat"><div class="num" id="s-top">–</div><div class="lbl">views on my top reel</div></div>
+    <div class="glass stat"><div class="num" id="s-likes">–</div><div class="lbl">total likes</div></div>
+    <div class="glass stat"><div class="num" id="s-count">–</div><div class="lbl">viral reels featured</div></div>
+  </section>
 
-  <div class="about" id="about">
-    <h2>About &amp; partners</h2>
-    <p>We’ve partnered with <b>Higgsfield</b> and the <b>Syntx</b> platform, and have been offered collaborations by other AI studios. We mainly focus on animation, but we work across many styles.</p>
-    <div class="chips"><span class="chip">Pixar 3D</span><span class="chip">Painterly</span><span class="chip">Anime</span><span class="chip">Pixel art</span><span class="chip">Realistic</span><span class="chip">Classic 2D</span></div>
-  </div>
+  <section class="block" aria-labelledby="role">
+    <p class="eyebrow">What I do</p>
+    <h2 id="role" class="h-section">The whole reel, start to finish.</h2>
+    <p class="copy">Every reel here is my own work, end to end. Four steps, one person.</p>
+    <div class="cards cols4">
+      <article class="glass panel"><div class="top"><h3 class="h-card">Concept</h3><span class="mono" aria-hidden="true">01</span></div><p class="copy">Finding the idea and the hook that makes people stop scrolling.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card">Writing</h3><span class="mono" aria-hidden="true">02</span></div><p class="copy">Scripting the story, the gag and the shot-by-shot prompts.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card">AI generation</h3><span class="mono" aria-hidden="true">03</span></div><p class="copy">Building consistent characters and generating every shot with AI video models.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card">Edit</h3><span class="mono" aria-hidden="true">04</span></div><p class="copy">Cutting, sound and finishing for vertical 9:16 release.</p></article>
+    </div>
+    <p class="eyebrow" style="margin-top:32px;margin-bottom:0">Tools &amp; partners</p>
+    <div class="chips"><span class="chip">Higgsfield</span><span class="chip">Syntx</span><span class="chip">Seedance 2.5</span></div>
+    <p class="note copy">I partner with <strong>Higgsfield</strong> and the <strong>Syntx</strong> platform. My focus is animation, in many styles: Pixar-style 3D, painterly, anime, pixel art, realistic and classic 2D.</p>
+  </section>
 
-  <div class="final">
-    <h2>Want a film like these?</h2>
-    <p class="sub" style="margin:0 auto 22px">See the full portfolio of our work.</p>
-    <a class="cta" href="https://avaistudios.com">See our portfolio <span>→</span></a>
-  </div>
+  <section class="block" aria-labelledby="accs">
+    <p class="eyebrow">Accounts I run</p>
+    <h2 id="accs" class="h-section">Two accounts, one creator.</h2>
+    <div class="cards cols2">
+      <a class="glass glass-hover acc" id="acc-avrakadabra" href="https://www.instagram.com/avrakadabra.ai/" target="_blank" rel="noopener"><div><h3 class="h-card">@avrakadabra.ai</h3><p class="copy">My personal account (formerly @avraamai).</p></div><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="glass glass-hover acc" id="acc-avai" href="https://www.instagram.com/avai.studio/" target="_blank" rel="noopener"><div><h3 class="h-card">@avai.studio</h3><p class="copy">My studio account: family &amp; toddler comedy in Pixar-style 3D.</p></div><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="block" id="reels" aria-labelledby="rl">
+    <p class="eyebrow">Selected work</p>
+    <h2 id="rl" class="h-section">My most viral reels</h2>
+    <p class="copy">Views and likes straight from Instagram, newest numbers I have. Tap a card to watch the reel.</p>
+    <div id="sections"></div>
+  </section>
+
+  <section class="block" aria-label="My studio">
+    <div class="glass-frame studio">
+      <div>
+        <img src="avai-logo1.svg" alt="AVAI Studio" width="452" height="282">
+        <h2 class="h-section">My studio</h2>
+        <p class="copy">AVAI Studio is the animation studio I run. See the full portfolio of its films.</p>
+      </div>
+      <a class="btn btn-solid" id="studio-link2" href="https://avaistudios.com" target="_blank" rel="noopener">avaistudios.com <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 </main>
-<footer>Made by Avraam Valikhan · AVAI Studio Agency</footer>
+<footer class="foot">Avraam Valikhan · AI animation director &amp; creator</footer>
+</div>
 
 <script id="fallback" type="application/json">{"updated": "2026-11-03", "portfolio_url": "https://avaistudios.com", "accounts": [{"id": "avai", "handle": "@avai.studio", "url": "https://www.instagram.com/avai.studio/", "title": "@avai.studio", "blurb": "Our studio account: family & toddler comedy in Pixar-style 3D.", "reels": [{"title": "The dress remake", "url": "https://www.instagram.com/reel/DeuCZCjDesG/", "image": "img/dress-remake.jpg", "views": 36862302, "likes": 569593, "posted": "2026-10-20", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad7791f009aee6864427b1e"}, {"title": "The sweetest alarm clock: “Pa-pa!”", "url": "https://www.instagram.com/reel/Ded4-xSky5C/", "image": "img/papa.jpg", "views": 5289835, "likes": 113490, "posted": "2026-10-14", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6acf34b4b610c3011fa732c4"}, {"title": "She does the cute part. Dad does the planning", "url": "https://www.instagram.com/reel/DfK-oGkDmGM/", "image": "img/halloween.jpg", "views": 1712365, "likes": 33921, "posted": "2026-10-31", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ae64a8221c807e9d581f746"}, {"title": "Saturday 6:02 am. Every. Single. Week.", "url": "https://www.instagram.com/reel/Deo9Mybj83T/", "image": "img/saturday.jpg", "views": 1218028, "likes": 32324, "posted": "2026-10-18", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad48060ae173d6e00f13ed0"}, {"title": "Access denied… until Dad walks in", "url": "https://www.instagram.com/reel/DejVISUD81J/", "image": "img/access.jpg", "views": 940533, "likes": 6463, "posted": "2026-10-16", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad1fdb6bbb9ce09f66c71bf"}, {"title": "Bodyguard outside. Baby inside", "url": "https://www.instagram.com/reel/De22U5QindI/", "image": "img/bodyguard.jpg", "views": 798337, "likes": 21853, "posted": "2026-10-24", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6adbce6d8b3d437ddc880830"}]}, {"id": "avrakadabra", "handle": "@avrakadabra.ai", "url": "https://www.instagram.com/avrakadabra.ai/", "title": "@avrakadabra.ai", "blurb": "Avraam’s personal account (formerly @avraamai): AI animation that went viral worldwide.", "reels": [{"title": "They trained him to become a Black Panther", "url": "https://www.instagram.com/reel/DSI3aXCjvzJ/", "image": "img/black-panther-c.jpg", "views": 62876439, "likes": 4641156, "source": "Grim agent (account owner data)"}, {"title": "Superma’am", "url": "https://www.instagram.com/reel/DRhvC0kDDp9/", "image": "img/supermaam-c.jpg", "views": 14006747, "likes": 593048, "views_display": "14M+", "likes_display": "593K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}, {"title": "It’s always the…", "url": "https://www.instagram.com/reel/DRSs5HsjjUr/", "image": "img/always-the-c.jpg", "views": 12423339, "likes": 569525, "views_display": "12M+", "likes_display": "569K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}, {"title": "What would you do?", "url": "https://www.instagram.com/reel/DSXkITzDBTB/", "image": "img/what-would-you-do-c.jpg", "views": 9084645, "likes": 457442, "source": "Grim agent (account owner data)"}, {"title": "Well.. at least AI won’t take his job", "url": "https://www.instagram.com/reel/DR28RCKDEd5/", "image": "img/ai-job-c.jpg", "views": 7141253, "likes": 356668, "source": "Grim agent (account owner data)"}, {"title": "They arrived with helicopters", "url": "https://www.instagram.com/reel/DRhVnEljHF0/", "image": "img/helicopters-c.jpg", "views": 5625247, "likes": 351716, "views_display": "5.6M+", "likes_display": "351K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}]}], "_todo": "To update numbers: edit views/likes here (and views_display/likes_display for rounded ones). Optional: set approx:true to show a + sign. Thumbnails live in img/. No phone numbers anywhere on this page."}</script>
 <script>
@@ -102,31 +354,36 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;fo
   const short=n=>n>=1e6?(Math.floor(n/1e5)/10).toFixed(1).replace(/\.0$/,"")+"M":n>=1e3?Math.floor(n/1e3)+"K":String(n);
   const rnd=n=>n>=1e6?(Math.round(n/1e5)/10).toFixed(1).replace(/\.0$/,"")+"M":short(n);
   const el=id=>document.getElementById(id);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   function render(d){
     const all=[];
     let html="";
-    d.accounts.forEach(a=>{
+    const order=["avrakadabra","avai"];
+    const accs=order.map(i=>d.accounts.find(a=>a.id===i)).filter(Boolean);
+    accs.forEach(a=>{
       const wide=a.id!=="avai";
       const cards=a.reels.map((r,i)=>{
-        all.push({...r,acc:a.handle,aid:a.id});
+        all.push(r);
         const v=r.views_display||nf.format(r.views), l=r.likes_display||nf.format(r.likes);
-        return `<a class="card" href="${r.url}" target="_blank" rel="noopener">
-          <div class="thumb${wide?" wide":""}"><img src="${r.image}" alt="${r.title}" loading="lazy"><span class="rank">#${i+1}</span></div>
+        return `<a class="glass glass-hover reel" href="${esc(r.url)}" target="_blank" rel="noopener">
+          <div class="thumb${wide?" wide":""}"><img src="${esc(r.image)}" alt="${esc(r.title)}" loading="lazy"><span class="rank">${String(i+1).padStart(2,"0")}</span></div>
           <div class="body"><div class="views">${v}<small>views</small></div>
-          <div class="row"><span>♥ ${l} likes</span></div>
-          <div class="ttl">${r.title}</div><div class="go">Watch on Instagram →</div></div></a>`;
+          <div class="likes">♥ ${l} likes</div>
+          <div class="ttl">${esc(r.title)}</div><div class="go">Watch on Instagram →</div></div></a>`;
       }).join("");
-      html+=`<section><div class="sec-h"><h2>Top reels</h2><a class="handle" href="${a.url}" target="_blank" rel="noopener">${a.handle}</a></div>
-        <p class="sub">${a.blurb}</p><div class="grid">${cards}</div></section>`;
+      const blurb=a.id==="avai"?"My studio account: family &amp; toddler comedy in Pixar-style 3D.":"My personal account (formerly @avraamai): AI animation that went viral worldwide.";
+      html+=`<div class="grp"><div class="grp-h"><h3 class="h-section">${esc(a.handle)}</h3><a href="${esc(a.url)}" target="_blank" rel="noopener">Open profile →</a></div>
+        <p class="copy">${blurb}</p><div class="grid">${cards}</div></div>`;
     });
     el("sections").innerHTML=html;
-    const total=all.reduce((s,r)=>s+r.views,0);
+    const total=all.reduce((s,r)=>s+r.views,0), likes=all.reduce((s,r)=>s+r.likes,0);
     const top=all.reduce((m,r)=>r.views>m.views?r:m,all[0]);
-    const topAvai=all.filter(r=>r.aid==="avai").reduce((m,r)=>r.views>m.views?r:m);
     el("s-total").textContent=short(total)+"+";
+    el("h-total").textContent=short(total)+"+";
     el("s-top").textContent=rnd(top.views);
-    el("s-avai").textContent=rnd(topAvai.views);
-    document.querySelector('a.cta').href=d.portfolio_url;
+    el("s-likes").textContent=short(likes)+"+";
+    el("s-count").textContent=all.length;
+    ["studio-link","studio-link2"].forEach(i=>el(i).href=d.portfolio_url);
   }
   fetch("reels.json").then(r=>r.json()).catch(()=>JSON.parse(el("fallback").textContent)).then(render);
 })();
