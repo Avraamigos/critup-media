@@ -1,0 +1,136 @@
+{
+ "updated": "2026-11-03",
+ "portfolio_url": "https://avaistudios.com",
+ "accounts": [
+  {
+   "id": "avai",
+   "handle": "@avai.studio",
+   "url": "https://www.instagram.com/avai.studio/",
+   "title": "@avai.studio",
+   "blurb": "Our studio account: family & toddler comedy in Pixar-style 3D.",
+   "reels": [
+    {
+     "title": "The dress remake",
+     "url": "https://www.instagram.com/reel/DeuCZCjDesG/",
+     "image": "img/dress-remake.jpg",
+     "views": 36862302,
+     "likes": 569593,
+     "posted": "2026-10-20",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad7791f009aee6864427b1e"
+    },
+    {
+     "title": "The sweetest alarm clock: “Pa-pa!”",
+     "url": "https://www.instagram.com/reel/Ded4-xSky5C/",
+     "image": "img/papa.jpg",
+     "views": 5289835,
+     "likes": 113490,
+     "posted": "2026-10-14",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6acf34b4b610c3011fa732c4"
+    },
+    {
+     "title": "She does the cute part. Dad does the planning",
+     "url": "https://www.instagram.com/reel/DfK-oGkDmGM/",
+     "image": "img/halloween.jpg",
+     "views": 1712365,
+     "likes": 33921,
+     "posted": "2026-10-31",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ae64a8221c807e9d581f746"
+    },
+    {
+     "title": "Saturday 6:02 am. Every. Single. Week.",
+     "url": "https://www.instagram.com/reel/Deo9Mybj83T/",
+     "image": "img/saturday.jpg",
+     "views": 1218028,
+     "likes": 32324,
+     "posted": "2026-10-18",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad48060ae173d6e00f13ed0"
+    },
+    {
+     "title": "Access denied… until Dad walks in",
+     "url": "https://www.instagram.com/reel/DejVISUD81J/",
+     "image": "img/access.jpg",
+     "views": 940533,
+     "likes": 6463,
+     "posted": "2026-10-16",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad1fdb6bbb9ce09f66c71bf"
+    },
+    {
+     "title": "Bodyguard outside. Baby inside",
+     "url": "https://www.instagram.com/reel/De22U5QindI/",
+     "image": "img/bodyguard.jpg",
+     "views": 798337,
+     "likes": 21853,
+     "posted": "2026-10-24",
+     "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6adbce6d8b3d437ddc880830"
+    }
+   ]
+  },
+  {
+   "id": "avrakadabra",
+   "handle": "@avrakadabra.ai",
+   "url": "https://www.instagram.com/avrakadabra.ai/",
+   "title": "@avrakadabra.ai",
+   "blurb": "Avraam’s personal account (formerly @avraamai): AI animation that went viral worldwide.",
+   "reels": [
+    {
+     "title": "They trained him to become a Black Panther",
+     "url": "https://www.instagram.com/reel/DSI3aXCjvzJ/",
+     "image": "img/black-panther-c.jpg",
+     "views": 62876439,
+     "likes": 4641156,
+     "source": "Grim agent (account owner data)"
+    },
+    {
+     "title": "Superma’am",
+     "url": "https://www.instagram.com/reel/DRhvC0kDDp9/",
+     "image": "img/supermaam-c.jpg",
+     "views": 14006747,
+     "likes": 593048,
+     "views_display": "14M+",
+     "likes_display": "593K+",
+     "approx": true,
+     "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"
+    },
+    {
+     "title": "It’s always the…",
+     "url": "https://www.instagram.com/reel/DRSs5HsjjUr/",
+     "image": "img/always-the-c.jpg",
+     "views": 12423339,
+     "likes": 569525,
+     "views_display": "12M+",
+     "likes_display": "569K+",
+     "approx": true,
+     "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"
+    },
+    {
+     "title": "What would you do?",
+     "url": "https://www.instagram.com/reel/DSXkITzDBTB/",
+     "image": "img/what-would-you-do-c.jpg",
+     "views": 9084645,
+     "likes": 457442,
+     "source": "Grim agent (account owner data)"
+    },
+    {
+     "title": "Well.. at least AI won’t take his job",
+     "url": "https://www.instagram.com/reel/DR28RCKDEd5/",
+     "image": "img/ai-job-c.jpg",
+     "views": 7141253,
+     "likes": 356668,
+     "source": "Grim agent (account owner data)"
+    },
+    {
+     "title": "They arrived with helicopters",
+     "url": "https://www.instagram.com/reel/DRhVnEljHF0/",
+     "image": "img/helicopters-c.jpg",
+     "views": 5625247,
+     "likes": 351716,
+     "views_display": "5.6M+",
+     "likes_display": "351K+",
+     "approx": true,
+     "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"
+    }
+   ]
+  }
+ ],
+ "_todo": "To update numbers: edit views/likes here (and views_display/likes_display for rounded ones). Optional: set approx:true to show a + sign. Thumbnails live in img/. No phone numbers anywhere on this page."
+}
