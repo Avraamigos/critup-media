@@ -273,6 +273,9 @@ img{display:block;max-width:100%}
 .studio h2{font-size:28px;margin-top:12px}
 .studio .copy{margin-top:8px;max-width:520px}
 footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)}
+.bar-r{display:flex;align-items:center;gap:8px}
+.bar .tag{display:none}
+@media(min-width:640px){.bar .tag{display:inline}}
 </style>
 </head>
 <body>
@@ -282,54 +285,54 @@ footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)
 <div class="shell">
 <header class="glass-bar bar">
   <span class="name">Avraam Valikhan</span>
-  <span class="tag">Portfolio</span>
+  <div class="bar-r"><span class="tag" data-i18n="tag">Portfolio</span><label><span class="sr-only" id="lang-l">Language</span><select id="lang" class="language-select" aria-label="Language"><option value="en">EN</option><option value="ru">RU</option></select></label></div>
 </header>
 <main id="main">
   <section class="hero rise" aria-labelledby="t">
-    <p class="eyebrow">AI animation director &amp; creator</p>
-    <h1 id="t" class="h-display">Avraam Valikhan <span>— I make AI animation that goes viral.</span></h1>
-    <p class="copy">I write, direct and generate short animated stories with AI. My reels have reached <strong id="h-total">157.9M+</strong> views across Instagram. Below is the work and the real numbers behind it.</p>
+    <p class="eyebrow" data-i18n="hero.eyebrow">AI animation director &amp; creator</p>
+    <h1 id="t" class="h-display" data-i18n="hero.h1">Avraam Valikhan <span>— I make AI animation that goes viral.</span></h1>
+    <p class="copy" data-i18n="hero.copy">I write, direct and generate short animated stories with AI. My reels have reached <strong id="h-total">157.9M+</strong> views across Instagram. Below is the work and the real numbers behind it.</p>
     <div class="actions">
-      <a class="btn btn-solid btn-sm" href="#reels">See my reels <span aria-hidden="true">↓</span></a>
-      <a class="btn btn-glass btn-sm" id="studio-link" href="https://avaistudios.com" target="_blank" rel="noopener">My studio: AVAI Studio <span aria-hidden="true">→</span></a>
+      <a class="btn btn-solid btn-sm" href="#reels" data-i18n="hero.cta1">See my reels <span aria-hidden="true">↓</span></a>
+      <a class="btn btn-glass btn-sm" id="studio-link" href="https://avaistudios.com" target="_blank" rel="noopener" data-i18n="hero.cta2">My studio: AVAI Studio <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
   <section class="stats" aria-label="Results">
-    <div class="glass stat first"><div class="num" id="s-total">–</div><div class="lbl">total views across 12 reels</div></div>
-    <div class="glass stat"><div class="num" id="s-top">–</div><div class="lbl">views on my top reel</div></div>
-    <div class="glass stat"><div class="num" id="s-likes">–</div><div class="lbl">total likes</div></div>
-    <div class="glass stat"><div class="num" id="s-count">–</div><div class="lbl">viral reels featured</div></div>
+    <div class="glass stat first"><div class="num" id="s-total">–</div><div class="lbl" data-i18n="st.total">total views across 12 reels</div></div>
+    <div class="glass stat"><div class="num" id="s-top">–</div><div class="lbl" data-i18n="st.top">views on my top reel</div></div>
+    <div class="glass stat"><div class="num" id="s-likes">–</div><div class="lbl" data-i18n="st.likes">total likes</div></div>
+    <div class="glass stat"><div class="num" id="s-count">–</div><div class="lbl" data-i18n="st.count">viral reels featured</div></div>
   </section>
 
   <section class="block" aria-labelledby="role">
-    <p class="eyebrow">What I do</p>
-    <h2 id="role" class="h-section">The whole reel, start to finish.</h2>
-    <p class="copy">Every reel here is my own work, end to end. Four steps, one person.</p>
+    <p class="eyebrow" data-i18n="role.eyebrow">What I do</p>
+    <h2 id="role" class="h-section" data-i18n="role.h">The whole reel, start to finish.</h2>
+    <p class="copy" data-i18n="role.copy">Every reel here is my own work, end to end. Four steps, one person.</p>
     <div class="cards cols4">
-      <article class="glass panel"><div class="top"><h3 class="h-card">Concept</h3><span class="mono" aria-hidden="true">01</span></div><p class="copy">Finding the idea and the hook that makes people stop scrolling.</p></article>
-      <article class="glass panel"><div class="top"><h3 class="h-card">Writing</h3><span class="mono" aria-hidden="true">02</span></div><p class="copy">Scripting the story, the gag and the shot-by-shot prompts.</p></article>
-      <article class="glass panel"><div class="top"><h3 class="h-card">AI generation</h3><span class="mono" aria-hidden="true">03</span></div><p class="copy">Building consistent characters and generating every shot with AI video models.</p></article>
-      <article class="glass panel"><div class="top"><h3 class="h-card">Edit</h3><span class="mono" aria-hidden="true">04</span></div><p class="copy">Cutting, sound and finishing for vertical 9:16 release.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card" data-i18n="r1">Concept</h3><span class="mono" aria-hidden="true">01</span></div><p class="copy" data-i18n="r1c">Finding the idea and the hook that makes people stop scrolling.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card" data-i18n="r2">Writing</h3><span class="mono" aria-hidden="true">02</span></div><p class="copy" data-i18n="r2c">Scripting the story, the gag and the shot-by-shot prompts.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card" data-i18n="r3">AI generation</h3><span class="mono" aria-hidden="true">03</span></div><p class="copy" data-i18n="r3c">Building consistent characters and generating every shot with AI video models.</p></article>
+      <article class="glass panel"><div class="top"><h3 class="h-card" data-i18n="r4">Edit</h3><span class="mono" aria-hidden="true">04</span></div><p class="copy" data-i18n="r4c">Cutting, sound and finishing for vertical 9:16 release.</p></article>
     </div>
-    <p class="eyebrow" style="margin-top:32px;margin-bottom:0">Tools &amp; partners</p>
+    <p class="eyebrow" style="margin-top:32px;margin-bottom:0" data-i18n="tools.eyebrow">Tools &amp; partners</p>
     <div class="chips"><span class="chip">Higgsfield</span><span class="chip">Syntx</span><span class="chip">Seedance 2.5</span></div>
-    <p class="note copy">I partner with <strong>Higgsfield</strong> and the <strong>Syntx</strong> platform. My focus is animation, in many styles: Pixar-style 3D, painterly, anime, pixel art, realistic and classic 2D.</p>
+    <p class="note copy" data-i18n="tools.note">I partner with <strong>Higgsfield</strong> and the <strong>Syntx</strong> platform. My focus is animation, in many styles: Pixar-style 3D, painterly, anime, pixel art, realistic and classic 2D.</p>
   </section>
 
   <section class="block" aria-labelledby="accs">
-    <p class="eyebrow">Accounts I run</p>
-    <h2 id="accs" class="h-section">Two accounts, one creator.</h2>
+    <p class="eyebrow" data-i18n="acc.eyebrow">Accounts I run</p>
+    <h2 id="accs" class="h-section" data-i18n="acc.h">Two accounts, one creator.</h2>
     <div class="cards cols2">
-      <a class="glass glass-hover acc" id="acc-avrakadabra" href="https://www.instagram.com/avrakadabra.ai/" target="_blank" rel="noopener"><div><h3 class="h-card">@avrakadabra.ai</h3><p class="copy">My personal account (formerly @avraamai).</p></div><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="glass glass-hover acc" id="acc-avai" href="https://www.instagram.com/avai.studio/" target="_blank" rel="noopener"><div><h3 class="h-card">@avai.studio</h3><p class="copy">My studio account: family &amp; toddler comedy in Pixar-style 3D.</p></div><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="glass glass-hover acc" id="acc-avrakadabra" href="https://www.instagram.com/avrakadabra.ai/" target="_blank" rel="noopener"><div><h3 class="h-card">@avrakadabra.ai</h3><p class="copy" data-i18n="acc.k">My personal account (formerly @avraamai).</p></div><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="glass glass-hover acc" id="acc-avai" href="https://www.instagram.com/avai.studio/" target="_blank" rel="noopener"><div><h3 class="h-card">@avai.studio</h3><p class="copy" data-i18n="acc.a">My studio account: family &amp; toddler comedy in Pixar-style 3D.</p></div><span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </section>
 
   <section class="block" id="reels" aria-labelledby="rl">
-    <p class="eyebrow">Selected work</p>
-    <h2 id="rl" class="h-section">My most viral reels</h2>
-    <p class="copy">Views and likes straight from Instagram, newest numbers I have. Tap a card to watch the reel.</p>
+    <p class="eyebrow" data-i18n="rl.eyebrow">Selected work</p>
+    <h2 id="rl" class="h-section" data-i18n="rl.h">My most viral reels</h2>
+    <p class="copy" data-i18n="rl.copy">Views and likes straight from Instagram, newest numbers I have. Tap a card to watch the reel.</p>
     <div id="sections"></div>
   </section>
 
@@ -337,14 +340,14 @@ footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)
     <div class="glass-frame studio">
       <div>
         <img src="avai-logo1.svg" alt="AVAI Studio" width="452" height="282">
-        <h2 class="h-section">My studio</h2>
-        <p class="copy">AVAI Studio is the animation studio I run. See the full portfolio of its films.</p>
+        <h2 class="h-section" data-i18n="st.h">My studio</h2>
+        <p class="copy" data-i18n="st.copy">AVAI Studio is the animation studio I run. See the full portfolio of its films.</p>
       </div>
       <a class="btn btn-solid" id="studio-link2" href="https://avaistudios.com" target="_blank" rel="noopener">avaistudios.com <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </main>
-<footer class="foot">Avraam Valikhan · AI animation director &amp; creator</footer>
+<footer class="foot" data-i18n="foot">Avraam Valikhan · AI animation director &amp; creator</footer>
 </div>
 
 <script id="fallback" type="application/json">{"updated": "2026-11-03", "portfolio_url": "https://avaistudios.com", "accounts": [{"id": "avai", "handle": "@avai.studio", "url": "https://www.instagram.com/avai.studio/", "title": "@avai.studio", "blurb": "Our studio account: family & toddler comedy in Pixar-style 3D.", "reels": [{"title": "The dress remake", "url": "https://www.instagram.com/reel/DeuCZCjDesG/", "image": "img/dress-remake.jpg", "views": 36862302, "likes": 569593, "posted": "2026-10-20", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad7791f009aee6864427b1e"}, {"title": "The sweetest alarm clock: “Pa-pa!”", "url": "https://www.instagram.com/reel/Ded4-xSky5C/", "image": "img/papa.jpg", "views": 5289835, "likes": 113490, "posted": "2026-10-14", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6acf34b4b610c3011fa732c4"}, {"title": "She does the cute part. Dad does the planning", "url": "https://www.instagram.com/reel/DfK-oGkDmGM/", "image": "img/halloween.jpg", "views": 1712365, "likes": 33921, "posted": "2026-10-31", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ae64a8221c807e9d581f746"}, {"title": "Saturday 6:02 am. Every. Single. Week.", "url": "https://www.instagram.com/reel/Deo9Mybj83T/", "image": "img/saturday.jpg", "views": 1218028, "likes": 32324, "posted": "2026-10-18", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad48060ae173d6e00f13ed0"}, {"title": "Access denied… until Dad walks in", "url": "https://www.instagram.com/reel/DejVISUD81J/", "image": "img/access.jpg", "views": 940533, "likes": 6463, "posted": "2026-10-16", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6ad1fdb6bbb9ce09f66c71bf"}, {"title": "Bodyguard outside. Baby inside", "url": "https://www.instagram.com/reel/De22U5QindI/", "image": "img/bodyguard.jpg", "views": 798337, "likes": 21853, "posted": "2026-10-24", "source": "Buffer API (get_post, metrics refreshed 2026-11-03 12:40 UTC); buffer 6adbce6d8b3d437ddc880830"}]}, {"id": "avrakadabra", "handle": "@avrakadabra.ai", "url": "https://www.instagram.com/avrakadabra.ai/", "title": "@avrakadabra.ai", "blurb": "Avraam’s personal account (formerly @avraamai): AI animation that went viral worldwide.", "reels": [{"title": "They trained him to become a Black Panther", "url": "https://www.instagram.com/reel/DSI3aXCjvzJ/", "image": "img/black-panther-c.jpg", "views": 62876439, "likes": 4641156, "source": "Grim agent (account owner data)"}, {"title": "Superma’am", "url": "https://www.instagram.com/reel/DRhvC0kDDp9/", "image": "img/supermaam-c.jpg", "views": 14006747, "likes": 593048, "views_display": "14M+", "likes_display": "593K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}, {"title": "It’s always the…", "url": "https://www.instagram.com/reel/DRSs5HsjjUr/", "image": "img/always-the-c.jpg", "views": 12423339, "likes": 569525, "views_display": "12M+", "likes_display": "569K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}, {"title": "What would you do?", "url": "https://www.instagram.com/reel/DSXkITzDBTB/", "image": "img/what-would-you-do-c.jpg", "views": 9084645, "likes": 457442, "source": "Grim agent (account owner data)"}, {"title": "Well.. at least AI won’t take his job", "url": "https://www.instagram.com/reel/DR28RCKDEd5/", "image": "img/ai-job-c.jpg", "views": 7141253, "likes": 356668, "source": "Grim agent (account owner data)"}, {"title": "They arrived with helicopters", "url": "https://www.instagram.com/reel/DRhVnEljHF0/", "image": "img/helicopters-c.jpg", "views": 5625247, "likes": 351716, "views_display": "5.6M+", "likes_display": "351K+", "approx": true, "source": "Grim agent; Buffer as of ~Oct 23-24, 2026 (rounded down)"}]}], "_todo": "To update numbers: edit views/likes here (and views_display/likes_display for rounded ones). Optional: set approx:true to show a + sign. Thumbnails live in img/. No phone numbers anywhere on this page."}</script>
@@ -355,7 +358,43 @@ footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)
   const rnd=n=>n>=1e6?(Math.round(n/1e5)/10).toFixed(1).replace(/\.0$/,"")+"M":short(n);
   const el=id=>document.getElementById(id);
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  const RU={"tag": "Портфолио", "hero.eyebrow": "AI-режиссёр анимации и креатор", "hero.copy": "Я пишу, режиссирую и генерирую короткие анимационные истории с помощью AI. Мои рилсы набрали <strong id=\"h-total\">157,9 млн+<\/strong> просмотров в Instagram. Ниже — работы и реальные цифры.", "hero.cta1": "Смотреть рилсы <span aria-hidden=\"true\">↓<\/span>", "hero.cta2": "Моя студия: AVAI Studio <span aria-hidden=\"true\">→<\/span>", "st.total": "просмотров на 12 рилсах", "st.top": "просмотров на лучшем рилсе", "st.likes": "лайков всего", "st.count": "вирусных рилсов в подборке", "role.eyebrow": "Чем я занимаюсь", "role.h": "Весь рилс — от идеи до финала.", "role.copy": "Каждый рилс здесь — моя работа от начала до конца. Четыре этапа, один человек.", "r1": "Концепция", "r1c": "Поиск идеи и крючка, из-за которого люди перестают листать ленту.", "r2": "Сценарий", "r2c": "Пишу историю, гэг и покадровые промпты.", "r3": "AI‑генерация", "r3c": "Создаю стабильных персонажей и генерирую каждый кадр в AI-видеомоделях.", "r4": "Монтаж", "r4c": "Нарезка, звук и финальная обработка под вертикальный формат 9:16.", "tools.eyebrow": "Инструменты и партнёры", "tools.note": "Я сотрудничаю с <strong>Higgsfield<\/strong> и платформой <strong>Syntx<\/strong>. Мой фокус — анимация в разных стилях: 3D в стиле Pixar, живописный, аниме, пиксель-арт, реалистичный и классическая 2D.", "acc.eyebrow": "Мои аккаунты", "acc.h": "Два аккаунта, один автор.", "acc.k": "Мой личный аккаунт (раньше @avraamai).", "acc.a": "Аккаунт моей студии: семейная комедия про малышку в 3D в стиле Pixar.", "rl.eyebrow": "Избранные работы", "rl.h": "Мои самые вирусные рилсы", "rl.copy": "Просмотры и лайки напрямую из Instagram, самые свежие цифры, что у меня есть. Нажмите на карточку, чтобы посмотреть рилс.", "st.h": "Моя студия", "st.copy": "AVAI Studio — анимационная студия, которой я руковожу. Полное портфолио её фильмов — по ссылке.", "foot": "Avraam Valikhan · AI-режиссёр анимации и креатор", "hero.h1": "Avraam Valikhan <span>— делаю AI-анимацию, которая становится вирусной.<\/span>"};
+  const EN={};
+  const KEY="avai-lang";
+  let lang="en",DATA=null;
+  document.querySelectorAll("[data-i18n]").forEach(n=>EN[n.dataset.i18n]=n.innerHTML);
+  const T={en:{views:"views",likes:"likes",watch:"Watch on Instagram →",profile:"Open profile →",title:"Avraam Valikhan — AI animation director & creator",desc:"Portfolio of Avraam Valikhan, AI animation director and creator. 157.9M+ views across 12 reels.",lbl:"Language",skip:"Skip to content",
+    avai:"My studio account: family & toddler comedy in Pixar-style 3D.",avk:"My personal account (formerly @avraamai): AI animation that went viral worldwide."},
+   ru:{views:"просмотров",likes:"лайков",watch:"Смотреть в Instagram →",profile:"Открыть профиль →",title:"Avraam Valikhan — AI-режиссёр анимации и креатор",desc:"Портфолио Avraam Valikhan, AI-режиссёра анимации и креатора. 157,9 млн+ просмотров на 12 рилсах.",lbl:"Язык",skip:"Перейти к содержимому",
+    avai:"Аккаунт моей студии: семейная комедия про малышку в 3D в стиле Pixar.",avk:"Мой личный аккаунт (раньше @avraamai): AI-анимация, ставшая вирусной по всему миру."}};
+  const NB="\u00a0";
+  function full(n){return lang==="ru"?String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB):nf.format(n);}
+  function disp(s){ // "14M+" / "593K+" -> locale
+    if(lang!=="ru")return s;
+    return s.replace(/([\d.]+)M/,(m,x)=>x.replace(".",",")+NB+"млн").replace(/([\d.]+)K/,(m,x)=>x.replace(".",",")+NB+"тыс.");
+  }
+  function sh(s){return lang==="ru"?s.replace(/([\d.]+)M/,(m,x)=>x.replace(".",",")+NB+"млн").replace(/([\d.]+)K/,(m,x)=>x.replace(".",",")+NB+"тыс."):s;}
+  function applyLang(l){
+    lang=l;
+    document.documentElement.lang=l;
+    document.querySelectorAll("[data-i18n]").forEach(n=>{n.innerHTML=l==="ru"?RU[n.dataset.i18n]:EN[n.dataset.i18n];});
+    document.title=T[l].title;
+    document.querySelector('meta[name=description]').content=T[l].desc;
+    el("lang").value=l;el("lang").setAttribute("aria-label",T[l].lbl);el("lang-l").textContent=T[l].lbl;
+    document.querySelector(".sr-only").textContent=T[l].skip;
+    if(DATA)render(DATA);
+  }
+  function initial(){
+    try{const q=new URLSearchParams(location.search).get("lang");if(q==="ru"||q==="en")return q;}catch(e){}
+    try{const s=localStorage.getItem(KEY);if(s==="ru"||s==="en")return s;
+      const prefs=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language];
+      for(const tag of prefs){const b=String(tag).toLowerCase().split("-")[0];
+        if(["ru","be","kk","ky","uk"].includes(b))return "ru"; if(b==="en")return "en";}}catch(e){}
+    return "en";
+  }
   function render(d){
+    DATA=d;
     const all=[];
     let html="";
     const order=["avrakadabra","avai"];
@@ -364,28 +403,32 @@ footer.foot{padding-top:40px;text-align:center;font-size:14px;color:var(--muted)
       const wide=a.id!=="avai";
       const cards=a.reels.map((r,i)=>{
         all.push(r);
-        const v=r.views_display||nf.format(r.views), l=r.likes_display||nf.format(r.likes);
+        const v=r.views_display?disp(r.views_display):full(r.views), l=r.likes_display?disp(r.likes_display):full(r.likes);
         return `<a class="glass glass-hover reel" href="${esc(r.url)}" target="_blank" rel="noopener">
           <div class="thumb${wide?" wide":""}"><img src="${esc(r.image)}" alt="${esc(r.title)}" loading="lazy"><span class="rank">${String(i+1).padStart(2,"0")}</span></div>
-          <div class="body"><div class="views">${v}<small>views</small></div>
-          <div class="likes">♥ ${l} likes</div>
-          <div class="ttl">${esc(r.title)}</div><div class="go">Watch on Instagram →</div></div></a>`;
+          <div class="body"><div class="views">${v}<small>${T[lang].views}</small></div>
+          <div class="likes">♥ ${l} ${T[lang].likes}</div>
+          <div class="ttl">${esc(r.title)}</div><div class="go">${T[lang].watch}</div></div></a>`;
       }).join("");
-      const blurb=a.id==="avai"?"My studio account: family &amp; toddler comedy in Pixar-style 3D.":"My personal account (formerly @avraamai): AI animation that went viral worldwide.";
-      html+=`<div class="grp"><div class="grp-h"><h3 class="h-section">${esc(a.handle)}</h3><a href="${esc(a.url)}" target="_blank" rel="noopener">Open profile →</a></div>
+      const blurb=a.id==="avai"?T[lang].avai:T[lang].avk;
+      html+=`<div class="grp"><div class="grp-h"><h3 class="h-section">${esc(a.handle)}</h3><a href="${esc(a.url)}" target="_blank" rel="noopener">${T[lang].profile}</a></div>
         <p class="copy">${blurb}</p><div class="grid">${cards}</div></div>`;
     });
     el("sections").innerHTML=html;
     const total=all.reduce((s,r)=>s+r.views,0), likes=all.reduce((s,r)=>s+r.likes,0);
     const top=all.reduce((m,r)=>r.views>m.views?r:m,all[0]);
-    el("s-total").textContent=short(total)+"+";
-    el("h-total").textContent=short(total)+"+";
-    el("s-top").textContent=rnd(top.views);
-    el("s-likes").textContent=short(likes)+"+";
+    el("s-total").textContent=sh(short(total)+"+");
+    el("h-total").textContent=sh(short(total)+"+");
+    el("s-top").textContent=sh(rnd(top.views));
+    el("s-likes").textContent=sh(short(likes)+"+");
     el("s-count").textContent=all.length;
     ["studio-link","studio-link2"].forEach(i=>el(i).href=d.portfolio_url);
   }
-  fetch("reels.json").then(r=>r.json()).catch(()=>JSON.parse(el("fallback").textContent)).then(render);
+  lang=initial();
+  el("lang").addEventListener("change",e=>{try{localStorage.setItem(KEY,e.target.value);}catch(_){}
+    try{const u=new URL(location.href);u.searchParams.set("lang",e.target.value);history.replaceState(null,"",u);}catch(_){}
+    applyLang(e.target.value);});
+  fetch("reels.json").then(r=>r.json()).catch(()=>JSON.parse(el("fallback").textContent)).then(d=>{DATA=d;applyLang(lang);});
 })();
 </script>
 </body>
